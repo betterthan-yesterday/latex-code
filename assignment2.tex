@@ -1,0 +1,147 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage[top=1in, bottom=1.25in, left=1.5in, right=1.5in]{geometry}
+\usepackage{fancyhdr}
+
+
+\pagenumbering{gobble}
+\begin{document}
+
+    Q1
+    \begin{align*}
+        & \quad p \land q \\
+        = & \quad\quad \langle \text{Golden Rule} \rangle \\
+        & \quad p \equiv q \equiv p \vee q \\
+        = & \quad\quad \langle \text{Symmetry of } \equiv \text{ and } \vee \rangle \\
+        & \quad q \equiv p \equiv q \vee p \\
+        = & \quad\quad \langle \text{Golden Rule, with } p,q := q,p \rangle \\
+        & \quad q \land p \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q2
+    \begin{align*}
+        & \quad p \Longrightarrow q \\
+        = & \quad\quad \langle \text{Definition of implication} \rangle \\
+        & \quad \neg p \vee q  \\
+        = & \quad\quad \langle \text{Symmetry of } \vee \rangle \\
+        & \quad q \vee \neg p \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := q,\neg p \rangle \\
+        & \quad \neg q \Longrightarrow \neg p \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q3
+    \begin{align*}
+        & \quad p \land q \Longrightarrow p \vee q \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := (p \land q),(p \vee q) \rangle \\
+        & \quad \neg (p \land q) \vee (p \vee q)  \\
+        = & \quad\quad \langle \text{De Morgan} \rangle \\
+        & \quad (\neg p \vee \neg q) \vee (p \vee q) \\
+        = & \quad\quad \langle \text{Symmetry and associativity of } \vee \rangle \\
+        & \quad \neg p \vee p \vee \neg q \vee q \\
+        = & \quad\quad \langle \text{Excluded middle} \rangle \\
+        & \quad true \vee true \\
+        = & \quad\quad \langle \text{Zero of } \vee \text{, with } p := true \rangle \\
+        & \quad true \\
+    \end{align*}
+
+    \newpage
+    Q4
+    \begin{align*}
+        & \quad p \vee (\neg p \land q) \\
+        = & \quad\quad \langle \text{Golden Rule, with } p := \neg p  \rangle \\
+        & \quad p \vee (\neg p \equiv q \equiv \neg p \vee q) \\
+        = & \quad\quad \langle \text{Distributivity of } \vee \text{ over } \equiv \rangle \\
+        & \quad p \vee \neg p \equiv p \vee q \equiv p \vee \neg p \vee q \\
+        = & \quad\quad \langle \text{Excluded middle} \rangle \\
+        & \quad true \equiv p \vee q \equiv true \vee q \\
+        = & \quad\quad \langle \text{Zero of } \vee \rangle \\
+        & \quad true \equiv p \vee q \equiv true \\
+        = & \quad\quad \langle \text{Identity of } \equiv \text{, with } q := p \vee q \rangle \\
+        & \quad p \vee q \equiv true \\
+        = & \quad\quad \langle \text{Second application of Identity of } \equiv \text{, with } q := p \vee q \rangle \\
+        & \quad p \vee q \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q5
+    \begin{align*}
+        & \quad p \vee q  \Longrightarrow p \land q \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := (p \vee q),(p \land q) \rangle \\
+        & \quad \neg (p \vee q) \vee (p \land q) \\
+        = & \quad\quad \langle \text{Golden Rule} \rangle \\
+        & \quad \neg (p \vee q) \vee (p \equiv q \equiv p \vee q) \\
+        = & \quad\quad \langle \text{Distributivity of } \vee \text{ over } \equiv \rangle \\
+        & \quad \neg (p \vee q) \vee p \equiv \neg (p \vee q) \vee q \equiv \neg (p \vee q) \vee (p \vee q) \\
+        = & \quad\quad \langle \text{Excluded Middle} \rangle \\
+        & \quad \neg (p \vee q) \vee p \equiv \neg (p \vee q) \vee q \equiv true \\
+        = & \quad\quad \langle \text{Identity of } \equiv \text{, with } q := \neg (p \vee q) \vee q \rangle \\
+        & \quad \neg (p \vee q) \vee p \equiv \neg (p \vee q) \vee q \\
+        = & \quad\quad \langle \text{De Morgan} \rangle \\
+        & \quad (\neg p \land \neg q) \vee p \equiv (\neg p \land \neg q) \vee q \\
+        = & \quad\quad \langle \text{Distributivity of } \vee \text{ over } \land \rangle \\
+        & \quad (\neg p \vee p) \land (\neg q \vee p) \equiv (\neg p \vee q) \land (\neg q \vee q) \\
+        = & \quad\quad \langle \text{Excluded Middle} \rangle \\ 
+        & \quad true \land (\neg q \vee p) \equiv (\neg p \vee q) \land true \\
+        = & \quad\quad \langle \text{Identity of } \land \rangle \\ 
+        & \quad \neg q \vee p \equiv \neg p \vee q \\
+        = & \quad\quad \langle \text{Symmetry of } \vee \rangle \\ 
+        & \quad p \vee \neg q \equiv q \vee \neg p \\
+        = & \quad\quad \langle p \vee q \equiv p \vee \neg q \equiv p \rangle \\ 
+        & \quad p \vee q \equiv p \equiv q \vee \neg p \\
+        = & \quad\quad \langle p \vee q \equiv p \vee \neg q \equiv p \text{, with } p,q := q,p \rangle \\
+        & \quad p \vee q \equiv p \equiv q \vee p \equiv q \\
+        = & \quad\quad \langle \text{Symmetry of } \vee \text{ and } \equiv \rangle \\
+        & \quad p \vee q \equiv p \vee q \equiv p \equiv q \\
+        = & \quad\quad \langle \text{Identity of } \equiv \text{, with } q := p \vee q \rangle \\
+        & \quad true \equiv p \equiv q \\
+        = & \quad\quad \langle \text{Identity of } \equiv \text{, with } q := p \equiv q \rangle \\
+        & \quad p \equiv q \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q6
+    \begin{align*}
+        & \quad p \vee q  \Longrightarrow p \land q \equiv p \equiv q \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := (p \vee q),(p \land q) \rangle \\
+        & \quad \neg (p \vee q) \vee (p \land q) \equiv p \equiv q \\
+        = & \quad\quad \langle \text{Duality theorem, i.e. convert into dual}\rangle \\
+        & \quad \neg (p \land q) \land (p \vee q) \not\equiv p \not\equiv q \\
+        = & \quad\quad \langle \text{Double negation, with } p := \neg (p \land q) \land (p \vee q) \rangle \\
+        & \quad \neg\neg (\neg (p \land q) \land (p \vee q)) \not\equiv p \not\equiv q \\
+        = & \quad\quad \langle \text{De Morgan, with } p,q := \neg (p \land q),(p \vee q) \rangle \\
+        & \quad \neg (\neg\neg (p \land q) \vee \neg(p \vee q)) \not\equiv p \not\equiv q \\
+        = & \quad\quad \langle \text{Double negation, with } p := (p \land q) \rangle \\
+        & \quad \neg ((p \land q) \vee \neg(p \vee q)) \not\equiv p \not\equiv q \\
+        = & \quad\quad \langle \text{Symmetry of } \vee \rangle \\
+        & \quad \neg (\neg(p \vee q) \vee (p \land q)) \not\equiv p \not\equiv q \\
+        = & \quad\quad \langle p \not\equiv q \equiv \neg p \equiv q \text{, with } p,q := \neg (\neg(p \vee q) \vee (p \land q)),p \not\equiv q \rangle \\
+        & \quad \neg\neg (\neg(p \vee q) \vee (p \land q)) \equiv p \not\equiv q \\
+    \end{align*}
+    Therefore, $ \neg\neg (\neg(p \vee q) \vee (p \land q)) \equiv p \not\equiv q $ is not valid because it is equivalent to the dual of Q5 and not the negated dual.
+
+    \vspace{10mm}
+    Q7
+    \begin{align*}
+        & * (x\, |\, 0 \leq x < r : *\, (y\, |\, 0 \leq y : x + y + n))[n := x + y] \\
+        = & \quad\quad \langle \text{Dummy Renaming} \rangle \\
+        & * (p\, |\, 0 \leq p < r : *\, (q\, |\, 0 \leq q : p + q + n))[n := x + y] \\
+        = & \quad\quad \langle \text{Textual Substitution} \rangle \\
+        & * (p\, |\, 0 \leq p < r : *\, (q\, |\, 0 \leq q : p + q + x + y)) \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q8
+    \begin{align*}
+        & \quad \exists(x\: |: R) \Longrightarrow \bigl(( \forall(x\: |\: R : P) \Longrightarrow Q) \equiv \exists(x\: |\: R : P \Longrightarrow Q)\bigr) \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := \forall(x\: |\: R : P),Q \rangle \\
+        & \quad \exists(x\: |: R) \Longrightarrow \bigl(( \neg\forall(x\: |\: R : P) \vee Q) \equiv \exists(x\: |\: R : P \Longrightarrow Q)\bigr) \\
+        = & \quad\quad \langle \text{Definition of implication, with } p,q := P,Q \rangle \\
+        & \quad \exists(x\: |: R) \Longrightarrow \bigl(( \neg\forall(x\: |\: R : P) \vee Q) \equiv \exists(x\: |\: R : \neg P \vee Q)\bigr) \\
+        = & \quad\quad \langle \text{Generalized De Morgan} \rangle \\
+        & \quad \exists(x\: |: R) \Longrightarrow \bigl(( \exists(x\: |\: R : \neg P) \vee Q) \equiv \exists(x\: |\: R : \neg P \vee Q)\bigr) \\
+        = & \quad\quad \langle \text{Distributivity of } \vee \text{ over } \exists \rangle \\
+        & \quad true \\
+    \end{align*}
+\end{document}

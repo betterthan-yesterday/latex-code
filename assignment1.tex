@@ -1,0 +1,166 @@
+\documentclass{article}
+\usepackage{fancyhdr}
+
+\begin{document}
+
+\pagenumbering{gobble}
+
+\pagestyle{fancy}
+\fancyhead[L]{William Pol 400450462}
+\fancyhead[R]{2DM3}
+
+
+1.1
+\[ \frac{x = x + 2}{4 * x + y = \mathord{?}} \]
+
+\[ \frac{x = x + 2}{4 * x + y = 4 * (x + 2) + y} \]
+
+\[ E = 4 * z + y \]
+
+\vspace{10mm}
+1.2
+\[ \frac{2 * y + 1 = 5}{x + (2 * y + 1) * w = \mathord{?}} \]
+
+\[ \frac{2 * y + 1 = 5}{x + (2 * y + 1) * w = x + 5 * w} \]
+
+\[ E = x + z * w \]
+
+\vspace{10mm}
+1.3
+\[ \frac{x + 1 = y}{3 * (x + 1) + 3 * x + 1 = \mathord{?}} \]
+
+\[ \frac{x + 1 = y}{3 * (x + 1) + 3 * x + 1 = 3 * y + 3 * x + 1} \]
+
+\[ E = 3 * z + 3 * x + 1 \]
+
+\vspace{10mm}
+1.4
+\[ \frac{x = y}{x + x = \mathord{?}} \]
+
+\[ 
+    \frac{x = y}{x + x = x + y} \hspace{10mm} 
+    \frac{x = y}{x + x = y + x} \hspace{10mm} 
+    \frac{x = y}{x + x = y + y}
+\]
+
+\[
+    E = x + z \hspace{16mm}
+    E = z + x \hspace{16mm}
+    E = z + z
+\]
+
+\newpage
+
+2.1
+\begin{center}
+    \begin{tabular}{c c|c||c}
+         $p$ & $q$ & \( p \land q \) & \( (p \land q) \Longrightarrow p\) \\
+         \hline
+         False & False & False & True \\
+         False & True & False & True \\
+         True & False & False & True \\
+         True & True & True & True \\
+    \end{tabular}
+    This expression is a tautology.
+\end{center}
+
+2.2
+\begin{center}
+    \begin{tabular}{c c|c|c||c}
+         $p$ & $q$ & \( \neg p \) & \( p \Longrightarrow q \) & \( \neg p \Longrightarrow (p \Longrightarrow q) \) \\
+         \hline
+         False & False & True & True & True \\
+         False & True & True & True & True \\
+         True & False & False & False & True \\
+         True & True & False & True & True \\
+    \end{tabular}
+\end{center}
+\begin{center} This expression is a tautology. \end{center}
+
+2.3
+\begin{center}
+    \begin{tabular}{c c|c||c}
+         $p$ & $q$ & \( p \vee q \) & \( p \Longrightarrow (p \vee q) \) \\
+         \hline
+         False & False & False & True \\
+         False & True & True & True \\
+         True & False & True & True \\
+         True & True & True & True \\
+    \end{tabular}
+    This expression is a tautology.
+\end{center}
+
+\vspace{10mm}
+3
+\begin{center}
+    \begin{tabular}{c c|c||c c|c}
+         $p$ & $q$ & \( \neg (p \land q) \) & $\neg p$ & $\neg q$ & \( \neg p \vee \neg q \) \\
+         \hline
+         False & False & True & True & True & True \\
+         False & True & True & True & False & True \\
+         True & False & True & False & True & True \\
+         True & True & False & False & False & False \\
+    \end{tabular}
+\end{center}
+\begin{center} These expressions are equivalent. \end{center}
+
+\newpage
+
+4a) The election has not been decided. \\
+
+b) The election has not been decided, but the votes have been counted. \\
+
+c) If the votes have not been counted, then the election has not been decided. \\
+
+d) The election will be decided if and only if the votes have been counted. \\
+
+e) Either the election is decided or the votes have been counted or both. \\
+
+f) If the votes have been counted, then the election has been decided. \\
+
+g) The election is not decided only if the votes have not been counted. \\
+
+h) Either the votes have not been counted or the votes have been counted, but the election has not been decided. \\
+
+\vspace{10mm}
+5a) \( p \land q \) \\
+
+b) \( p \land \neg q \) \\
+
+c) \( \neg p \land \neg q \) \\
+
+d) \( p \vee q \) \\
+
+e) \( p \Longrightarrow q \) \\
+
+f) \( p \not\equiv q \) \\
+
+g) \( p \equiv q \) \\
+
+\newpage
+
+6a) If John Do has the flu, then he will miss the final examination. \\
+
+b) John Do does the final examination if and only if he misses the course. \\
+
+c) If John Do misses the final examination, he will take the course. \\
+
+d) John Do either has the flu, misses the final examination, misses the course or all three. \\
+
+e) For John Do to take the course, it is sufficient for him to either have the flu or miss the final examination. \\
+
+f) Either John Do has the flu and misses the final examination, or he does the final examination and misses the course. \\
+
+\vspace{10mm}
+7
+\begin{center}
+    \begin{tabular}{c|c||c}
+        $p$ & \( p \vee \textrm{False} \) & \( p \vee \textrm{False} \equiv p \) \\
+        \hline
+        False & False & True \\
+        True & True & True \\
+    \end{tabular}
+    The expression is valid.
+\end{center}
+
+\end{document}

@@ -1,0 +1,297 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[top=1in, bottom=1.25in, left=1.5in, right=1.5in]{geometry}
+\usepackage{fancyhdr}
+
+
+
+\pagenumbering{gobble}
+\begin{document}
+
+    Q1
+    \begin{gather*}
+        P:\quad f = n! \\
+        \{P\}\quad n, f := n+1, e\quad \{P\} \\
+    \end{gather*}
+    \begin{gather*}
+        P \Longrightarrow P[n, f := n+1, e] \\
+        \text{Assume antecedent and prove consequent.}
+    \end{gather*}
+    \begin{align*}
+        & \quad P[n, f := n+1, e] \\ 
+        = & \quad\quad \langle \text{Definition of } P \text{; Textual Substitution} \rangle \\
+        & \quad e = (n+1)! \\ 
+        = & \quad\quad \langle (n+1)! = (n+1) \times n! \rangle \\
+        & \quad e = (n+1) \times n! \\ 
+        = & \quad\quad \langle \text{Assumption } P \rangle \\
+        & \quad e = (n+1) \times f \\ 
+    \end{align*}
+
+    \vspace{10mm}
+    Q2.1
+    \begin{equation*}
+        \{x = X \land y = Y\} \quad x, y := ? \quad \{x \leq y\ \land (x = X \vee y = X) \land (x = Y \vee y = Y) \}
+    \end{equation*}
+    
+    Q2.2
+    \begin{align*}
+        & \{x = X \land y = Y\} \\
+        & \textbf{if } x \leq y \textbf{ then skip else } x, y := y, x \\
+        & \{x \leq y\ \land (x = X \vee y = X) \land (x = Y \vee y = Y) \}
+    \end{align*}
+    
+    Q2.3
+    \begin{gather*}
+        \text{Prove} \hspace{90mm} \\
+        \{x = X \land y = Y \land x \leq y\} \;\textbf{skip}\; \{x \leq y \land (x = X \vee y = X) \land (x = Y \vee y = Y) \} \\
+        \{x = X \land y = Y \land \neg(x \leq y)\} \;x, y := y, x\; \{x \leq y \land (x = X \vee y = X) \land (x = Y \vee y = Y) \} \\
+    \end{gather*}
+
+\begin{gather*}
+    x = X \land y = Y \land x \leq y \Longrightarrow x \leq y \land (x = X \vee y = X) \land (x = Y \vee y = Y)
+\end{gather*}
+\begin{align*}
+    & \quad x = X \land y = Y \land x \leq y \\
+    \Longrightarrow & \qquad \langle \text{Weakening/Strengthening} \rangle \\
+     & \quad x \leq y \land (x = X \vee y = X) \land (x = Y \vee y = Y) \\
+\end{align*}    
+    \begin{align*}
+        & \quad x = X \land y = Y \land \neg(x \leq y) \Longrightarrow (x \leq y \land (x = X \vee y = X) \land (x = Y \vee y = Y))[x, y := y, x] \\
+        = & \qquad \langle \text{Textual Substitution} \rangle \\
+        & \quad x = X \land y = Y \land \neg(x \leq y) \Longrightarrow y \leq x \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        & \hspace{35mm} \text{Assume antecedent and prove consequent.} 
+    \end{align*}
+
+\begin{align*}
+        & \quad y \leq x \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle \text{Definition of } \leq \rangle \\
+        & \quad (y < x \vee y = x) \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle \text{Assumption } x = X \land y = Y \land \neg(x \leq y) \Longrightarrow y = x \equiv false \rangle \\
+        & \quad (y < x \vee false) \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle \text{Identity of  } \vee \rangle \\
+        & \quad y < x \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle p < q \equiv \neg(p \geq q) \text{, with } p, q := y, x \rangle \\
+        & \quad \neg(y \geq x) \land (y = X \vee x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle \text{Distributivity of } \land \text{ over } \vee \rangle \\
+        & \quad (\neg(y \geq x) \land y = X \vee \neg(y \geq x) \land x = X) \land (y = Y \vee x = Y) \\
+        \Longleftrightarrow & \qquad \langle \text{Distributivity of } \land \text{ over } \vee \rangle \\
+        & \quad ((\neg(y \geq x) \land y = X) \land (y = Y \vee x = Y)) \vee ((\neg(y \geq x) \land x = X) \land (y = Y \vee x = Y)) \\
+        \Longleftrightarrow & \qquad \langle \text{Distributivity of } \vee \text{ over } \land \rangle \\
+        & \quad ((\neg(y \geq x) \land y = X) \land (y = Y \vee x = Y)) \vee \\
+        & \quad ((\neg(y \geq x) \land x = X \land y = Y) \vee (\neg(y \geq x) \land x = X \land x = Y)) \\
+        \Longleftrightarrow & \qquad \langle \text{Assumption } x = X \land y = Y \land \neg(x \leq y) \rangle \\
+        & \quad ((\neg(y \geq x) \land y = X) \land (y = Y \vee x = Y)) \vee (true \vee (\neg(y \geq x) \land x = X \land x = Y)) \\
+        \Longleftrightarrow & \qquad \langle \text{Zero of } \vee \text{, twice} \rangle \\
+        & \quad true
+\end{align*}
+
+    \vspace{10mm}
+    Q3 
+    \begin{align*}
+        \{0 \leq n\} \quad m :=\, ? \quad \{(\text{odd}.m \Longrightarrow (\forall i\,|\,0 &\leq i < n \land c[n-i-1] = b[i])) \vee \\(\text{even}.m \Longrightarrow (\forall i\,|\, 0 &\leq i < n \land c[i] = 2\times b[i]))\}
+    \end{align*}
+
+    \vspace{10mm}
+    Q4.1
+    \begin{align*}
+        & v \in \{b, c\} \\
+        = & \qquad \langle \text{Set enumeration} \rangle \\
+        & v \in \{x\, |\, x = b \vee x = c : x\} \\
+        = & \qquad \langle x \in \{x\, |\, R\} \equiv R \rangle \\
+        & v = b \vee v = c
+    \end{align*}
+    \newpage
+    Q4.2
+    \begin{center}
+    Proof via Mutual Implication
+    \end{center}
+    \begin{align*}
+        & \quad \{b, c\} = \{b, e\} \\
+        \Longleftrightarrow & \qquad \langle \text{Set enumeration} \rangle \\ 
+        & \quad \{x\, |\, x = b \vee x = c\} = \{x\,|\, x=b \vee x=e\} \\
+        \Longleftrightarrow & \qquad \langle \{x\,|\,Q\} =\{x\,|\,R\} \equiv (\forall x\,|\,: Q=R) \rangle \\ 
+        & \quad (\forall x\,|\,: x=b \vee x=c \equiv x=b \vee x=e) \\
+        \Longleftrightarrow & \qquad \langle \text{Distributivity of } \vee \text{ over } \equiv \rangle \\ 
+        & \quad (\forall x\,|\,: x=b \vee (x=c \equiv x=e)) \\
+        \Longleftrightarrow & \qquad \langle \text{Distributivity of } \vee \text{ over } \forall \rangle \\ 
+        & \quad x=b \vee (\forall x\,|\,: x=c \equiv x=e) \\
+        \Longleftrightarrow & \qquad \langle \text{Singleton membership} \rangle \\ 
+        & \quad x=b \vee (\forall x\,|\,: x \in \{c\} \equiv x \in \{e\}) \\
+        \Longleftrightarrow & \qquad \langle \text{Extensionality} \rangle \\ 
+        & \quad x=b \vee (\{c\} = \{e\}) \\
+        \Longrightarrow & \qquad \langle \text{Weakening/Strengthening} \rangle \\ 
+        & \quad \{c\} = \{e\} \\
+        \Longleftrightarrow & \qquad \langle \text{Set enumeration} \rangle \\ 
+        & \quad \{x\,|\, x=c\} = \{x\,|\, x=e\} \\
+        \Longleftrightarrow & \qquad \langle \text{One-point rule} \rangle \\ 
+        & \quad c = e \\
+    \end{align*}
+    \begin{align*}
+        & \quad c = e \\
+        \Longrightarrow & \qquad \langle \text{Leibniz, } \{b, z\}[z := p]\rangle \\ 
+        & \quad \{b,c\} = \{b,e\} \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q5.1
+    \begin{align*}
+        & \quad (\forall M\, |\, M \subseteq X : (\sim M \cup M) \cup A = X) \\
+        \Longleftrightarrow & \qquad \langle \text{Excluded Middle} \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : X \cup A = X) \\
+        \Longleftrightarrow & \qquad \langle \text{Zero of } \cup \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : X = X) \\
+        \Longleftrightarrow & \qquad \langle \text{Metatheorem, } q \equiv q \equiv true \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : true) \\
+        \Longleftrightarrow & \qquad \langle (\forall x\, |\, R : true) \equiv true \rangle \\
+        & \quad true \\
+    \end{align*}
+  
+    Q5.2
+    \begin{align*}
+        & \quad (\forall M\, |\, M \subseteq X : (\sim M \cap M) \cap A = \emptyset) \\
+        \Longleftrightarrow & \qquad \langle \text{Contradiction} \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : \emptyset \cap A = \emptyset) \\
+        \Longleftrightarrow & \qquad \langle \text{Zero of } \cap \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : \emptyset = \emptyset) \\
+        \Longleftrightarrow & \qquad \langle \text{Metatheorem, } q \equiv q \equiv true \rangle \\
+        & \quad (\forall M\, |\, M \subseteq X : true) \\
+        \Longleftrightarrow & \qquad \langle (\forall x\, |\, R : true) \equiv true \rangle \\
+        & \quad true \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q6
+    \begin{align*}
+        & \quad \mathcal{P}\emptyset = \{\emptyset\} \\
+        \Longleftrightarrow & \qquad \langle \text{Extensionality} \rangle \\
+        & \quad (\forall v\,|\,: v \in \mathcal{P}\emptyset \equiv v \in \{\emptyset\}) \\
+        \Longleftrightarrow & \qquad \langle \text{Power set} \rangle \\
+        & \quad (\forall v\,|\,: v \subseteq \emptyset \equiv v \in \{\emptyset\}) \\
+        \Longleftrightarrow & \qquad \langle S \subseteq T \equiv S \cup T = T \rangle \\
+        & \quad (\forall v\,|\,: v \cup \emptyset = \emptyset \equiv v \in \{\emptyset\}) \\
+        \Longleftrightarrow & \qquad \langle \text{Identity of } \cup \rangle \\
+        & \quad (\forall v\,|\,: v = \emptyset \equiv v \in \{\emptyset\}) \\
+        \Longleftrightarrow & \qquad \langle \text{Singleton membership} \rangle \\
+        & \quad (\forall v\,|\,: v \in \emptyset \equiv v \in \{\emptyset\}) \\
+        \Longleftrightarrow & \qquad \langle \text{Identity of } \equiv \rangle \\
+        & \quad (\forall v\,|\,: true) \\
+        \Longleftrightarrow & \qquad \langle (\forall x\, |\, R : true) \equiv true \rangle \\
+        & \quad true \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q7
+    \begin{align*}
+        & \quad (\exists x\, |\, x \in S : x \notin T) \Longrightarrow S \neq T \\
+        \Longleftrightarrow & \qquad \langle \text{Definition of Implication} \rangle \\
+        & \quad \neg(\exists x\, |\, x \in S : x \notin T) \vee S \neq T \\
+        \Longleftrightarrow & \qquad \langle \text{Generalized De Morgan} \rangle \\
+        & \quad (\forall x\, |\, x \in S : x \in T) \vee S \neq T \\
+        \Longleftrightarrow & \qquad \langle \text{Extensionality} \rangle \\
+        & \quad S = T \vee S \neq T \\
+        \Longleftrightarrow & \qquad \langle \text{Excluded Middle} \rangle \\
+        & \quad true \\
+    \end{align*}
+    \vspace{10mm}
+    Q8a
+    \begin{equation*}
+       \begin{split}
+            A\cup B - A\cap B &= \{\!| \text{121.iMac, 50.desktop} \_ \text{computer, 8.server} |\!\} - \{\!| \text{14.iMac, 6.desktop} \_ \text{computer, 2.server} |\!\} \\
+            &= \{\!| \text{107.iMac, 44.desktop} \_ \text{computer, 6.server} |\!\}
+       \end{split}
+    \end{equation*}
+    Since both departments can share the same equipment, the total equipment required is the difference between the total needs and the amount of equipment that would be shared; department A requires more of every equipment so it is the universe.
+
+    \vspace{10mm}
+    Q8b
+    \begin{equation*}
+        B - A = \emptyset
+    \end{equation*}
+    The question requires the difference between B and A, but since department A uses more of every equipment, there is no equipment that B uses that A does not use.
+
+    \vspace{10mm}
+    Q8c
+    \begin{equation*}
+        A \cup B = \{\!| \text{121.iMac, 50.desktop} \_ \text{computer, 8.server} |\!\}
+    \end{equation*}
+    Since both departments require separate equipment, their needs for each equipment are summed.
+
+    \vspace{10mm}
+    Q9
+    Each category is a tuple that consists of one element from each of the two criteria, which implies $G \times W$.
+    \begin{align*}
+        \#(G \times W) &= \#G \bullet \#W \\
+        &= 3 \bullet 2 \\
+        &= 6
+    \end{align*}
+
+    \newpage
+    Q10
+    \begin{equation*}
+        \text{Assume antecedent } A\subseteq U \land B\subseteq V \text{ and prove consequent.}
+    \end{equation*}
+    \begin{align*}
+        & \quad \langle x,y\rangle\in A\times B \\
+        \Longleftrightarrow & \qquad \langle \text{Membership} \rangle \\
+        & \quad x\in A\land y\in B \\
+        \Longrightarrow & \qquad \langle \text{Assumption, } S\subseteq T \Longrightarrow x\in S \Longrightarrow x\in T \rangle \\
+        & \quad x\in U\land y\in V \\
+        \Longleftrightarrow & \qquad \langle \text{Membership} \rangle \\
+        & \quad \langle x,y\rangle\in U\times V \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q11
+    \begin{align*}
+        \text{Dom.}R &= \{x:\mathbb{N}\, |\, (\exists y\, |\, y \in \mathbb{N}: \langle x, y \rangle \in \{(x, y)\, |\, y < 200 \land y = x - 8)\} \} \\
+        &= [9, 207] \\
+        \text{Ran.}R &= \{y:\mathbb{N}\, |\, (\exists x\, |\, x \in \mathbb{N}: \langle x, y \rangle \in \{(x, y)\, |\, y < 200 \land y = x - 8)\} \} \\
+        &= [1, 199] \\
+    \end{align*}
+
+    \vspace{10mm}
+    Q12.1
+    \begin{align*}
+        & \quad \langle a,c\rangle\in R\circ R^{-1} \\
+        \Longleftrightarrow & \qquad \langle \text{Definition of } \circ \rangle \\
+        & \quad (\exists b\,|\,b\in\mathbb{N}:\langle a,b\rangle\in R \land \langle b,c\rangle\in R^{-1}) \\
+        \Longleftrightarrow & \qquad \langle \text{Definition of } R, R^{-1} \rangle \\
+        & \quad (\exists b\,|\,b\in\mathbb{N}:\langle a,b\rangle\in \{(x,y)\,|\,y=2x\} \land \langle b,c\rangle\in \{(y,x)\,|\,y=2x\}) \\
+        \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\} \equiv R \rangle \\
+        & \quad (\exists b\,|\,b\in\mathbb{N}:b=2a\land b=2c) \\
+        \Longleftrightarrow & \qquad \langle \text{Simplify} \rangle \\
+        & \quad (\exists b\,|\,b\in\mathbb{N}:a=c)
+    \end{align*}
+    If the product of $R \circ R^{-1}$ results in only tuples $\langle a,c\rangle$ where $a=c$, then it is a subset of the identity relation and therefore deterministic. 
+    
+    \vspace{5mm}
+    Q12.2
+    \begin{equation*}
+    \sim R = \{\langle x,y\rangle\,|\, y \neq 2x\}
+    \end{equation*}
+
+    \vspace{5mm}
+    Q12.3
+    \begin{gather*}
+        \text{From 12.1} \\
+        R\circ R^{-1} = \{x\,|\, x\in\mathbb{N}:\langle x,x\rangle\}
+    \end{gather*}
+    
+    \vspace{5mm}
+    Q12.4
+    \begin{align*}
+        & \quad R\subseteq S\times T \Longleftrightarrow R^{-1} \subseteq T\times S \qquad \langle 14.19\rangle \\ 
+        \Longrightarrow & \quad R\circ R^{-1} \subseteq S\times T\times S \\
+        \Longleftrightarrow & \quad R\circ R^{-1} \subseteq S\times S \\
+    \end{align*}
+
+    \vspace{5mm}
+    Q12.5
+    \begin{align*}
+        & \quad R\subseteq S\times T \Longleftrightarrow R^{-1} \subseteq T\times S \qquad \langle 14.19\rangle \\ 
+        \Longrightarrow & \quad R^{-1}\circ R \subseteq T\times S\times T \\
+        \Longleftrightarrow & \quad R^{-1}\circ R \subseteq T\times T \\
+    \end{align*}
+     
+\end{document}

@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{dsfont}
+\usepackage[top=1in, bottom=1.25in, left=1.5in, right=1.5in]{geometry}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+
+
+\pagenumbering{gobble}
+\begin{document}
+
+    \vspace{10mm}
+    Q1
+    \begin{gather*}
+        \textbf{Theorem. }\text{Function } \sigma \text{ is surjective iff Ran} .\sigma = \mathbb{N} \\
+        \text{Ran}.\sigma=\{8\}\neq\mathbb{N}\quad-\text{not surjective} \\
+        \textbf{Theorem. }\text{Function } \sigma \text{ is injective iff } (\forall b,b',c\,|\, b\,\sigma c \land b'\sigma c \equiv b=b')\\
+        \sigma = \{(7,8)\}\quad -\text{since the second component 8 only has one first component 7, it is injective}
+    \end{gather*}
+
+    \vspace{10mm}
+    Q2
+    \begin{align*}
+    & \textbf{Prove reflexivity} \\
+    & \quad (\forall b\,|\,: (b,b)\in \{(x,y)\,|\, x\%3=y\%3\}) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall b\,|\,: b\%3=b\%3) \\
+    \Longleftrightarrow & \qquad \langle \text{Metatheorem, Identity of } \equiv \rangle \\
+    & \quad (\forall b\,|\,: true) \\
+    \Longleftrightarrow & \qquad \langle (\forall x\,|\, R: true) \equiv true \rangle \\
+    & \quad true \\
+    \end{align*}
+    \begin{align*}
+    & \textbf{Prove symmetry} \\
+    & \quad (\forall b,c\,|\,: (b,c)\in \{(x,y)\,|\, x\%3=y\%3\} \equiv (c,b)\in \{(x,y)\,|\, x\%3=y\%3\}) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall b,c\,|\,: b\%3=c\%3 \equiv c\%3=b\%3) \\
+    \Longleftrightarrow & \qquad \langle
+\text{Metatheorem, Symmetry of } \equiv \rangle \\
+    & \quad (\forall b,c\,|\,: b\%3=c\%3 \equiv b\%3=c\%3) \\
+    \Longleftrightarrow & \qquad \langle \text{Metatheorem, Identity of } \equiv \rangle \\
+    & \quad (\forall b,c\,|\,: true) \\
+    \Longleftrightarrow & \qquad \langle (\forall x\,|\,: R: true) \equiv true \rangle \\
+    & \quad true \\
+    \end{align*}
+    \begin{align*}
+    & \textbf{Prove transitivity} \\
+    & \quad (\forall b,c,d\,|\,: (b,c)\in \{(x,y)\,|\, x\%3=y\%3\} \land (c,d)\in \{(x,y)\,|\, x\%3=y\%3\}\\
+    & \Longrightarrow (b,d)\in\{(x,y)\,|\, x\%3=y\%3\}) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall b,c,d\,|\,: b\%3=c\%3 \land c\%3=d\%3 \Longrightarrow b\%3=d\%3) \\
+    \Longleftrightarrow & \qquad \langle \text{Transitivity of } =, (a=b\land b=c \Longrightarrow a=c) \rangle \\
+    & \quad (\forall b,c,d\,|\,: true) \\
+    \Longleftrightarrow & \qquad \langle (\forall x\,|\, R: true) \equiv true \rangle \\
+    & \quad true \\
+    \end{align*}
+    \begin{equation*}
+        \text{The equivalence classes of } \rho \text{ are } [0]_\rho, [1]_\rho, [2]_\rho.
+    \end{equation*}
+    
+    \vspace{10mm}
+    Q3
+    \begin{align*}
+    & \textbf{Prove reflexivity} \\
+    & \quad (\forall x,y\,|\,: ((x,y),(x,y))\in \{((a,b),(c,d))\,|\, a\leq c\}) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall x,y\,|\,: x\leq x) \\
+    \Longleftrightarrow & \qquad \langle \text{Metatheorem, Definition of } \leq \rangle \\
+    & \quad (\forall x,y\,|\,: x=x \vee x<x) \\
+    \Longleftrightarrow & \qquad \langle \text{Arithmetic} \rangle \\
+    & \quad (\forall x,y\,|\,: true \vee false) \\
+    \Longleftrightarrow & \qquad \langle \text{Excluded Middle} \rangle \\
+    & \quad (\forall x,y\,|\,: true) \\
+    \Longleftrightarrow & \qquad \langle (\forall x\,|\, R: true) \equiv true \rangle \\
+    & \quad true \\
+    \end{align*}
+    \begin{align*}
+    & \textbf{Disprove antisymmetry by counterexample} \\
+    & \quad (\forall (w,x),(y,z)\,|\,: ((w,x),(y,z))\in \{((a,b),(c,d))\,|\, a\leq c\} \land \\
+    & ((y,z),(w,x))\in \{((a,b),(c,d))\,|\, a\leq c\} \Longrightarrow (w,x)=(y,z)) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall (w,x),(y,z)\,|\,: w\leq y \land y\leq w \Longrightarrow (w,x)=(y,z)) \\
+    \Longleftrightarrow & \qquad \langle \text{Textual Substitution, } (w,x),(y,z):=(3,4),(3,5) \rangle \\
+    & \quad 3\leq 3 \land 3\leq 3 \Longrightarrow (3,4)=(3,5) \\
+    \Longleftrightarrow & \qquad \langle \text{Arithmetic} \rangle \\
+    & \quad true \land true \Longrightarrow false \\
+    \Longleftrightarrow & \qquad \langle \text{Idempotency of } \land \rangle \\
+    & \quad true \Longrightarrow false \\
+    \Longleftrightarrow & \qquad \langle p \Longrightarrow false \equiv \neg p \rangle \\
+    & \quad \neg true \\
+    \Longleftrightarrow & \qquad \langle \text{Definition of } false \rangle \\
+    & \quad false \\
+    \end{align*}
+    \begin{align*}
+    & \textbf{Prove transitivity} \\
+    & \quad (\forall (u,v),(w,x),(y,z)\,|\, ((u,v),(w,x))\in \{((a,b),(c,d))\,|\, a\leq c\} \land \\
+    & ((w,x),(y,z))\in \{((a,b),(c,d))\,|\, a\leq c\} \Longrightarrow ((u,v),(y,z))\in\{((a,b),(c,d))\,|\, a\leq c\}) \\
+    \Longleftrightarrow & \qquad \langle x\in\{x\,|\,R\}=R \rangle \\
+    & \quad (\forall ((u,v),(w,x),(y,z))\,|\, u\leq w \land w\leq y \Longrightarrow u\leq y) \\
+    \Longleftrightarrow & \qquad \langle
+\text{Arithmetic} \rangle \\
+    & \quad (\forall ((u,v),(w,x),(y,z))\,|\, u\leq y \Longrightarrow u\leq y) \\
+    \Longleftrightarrow & \qquad \langle
+p\Longrightarrow p \equiv true \rangle \\
+    & \quad (\forall ((u,v),(w,x),(y,z))\,|\, true) \\
+    \Longleftrightarrow & \qquad \langle (\forall x\,|\, true) \equiv true \rangle \\
+    & \quad true \\
+    \end{align*}
+    \begin{gather*}
+        \text{$R$ is not a partial order because it is not antisymmetric, and therefore not a total order either.} \\
+        \text{$R$ is also not a quasi order as it is reflexive.}
+    \end{gather*}
+
+    \vspace{10mm}
+    Q4.1
+    \begin{align*}
+        \text{Pr($\neg$(Macs bought  } \leq 1)) &= 1 - \text{Pr(Macs bought  } \leq 1) \\
+        &= 1 - 0.428 \\
+        &= 0.572 
+    \end{align*}
+    
+    Q4.2
+    \begin{align*}
+        \text{Pr($\neg$(6 Macs bought  $\cup$ 6 PCs bought})) &= 1 - \text{Pr(6 Macs bought  $\cup$ 6 PCs bought}) \\
+        &= 1 - (\text{Pr(6 Macs bought } + \text{Pr(6 PCs bought})) \\
+        &= 1 - (0.116 + 0.005) \\
+        &= 1 - 0.121 \\
+        &= 0.879
+    \end{align*}
+
+    \vspace{10mm}
+    Q5
+    \begin{gather*}
+        \text{Let $X$ be the set of all possible variables} \\
+        \text{Let $P$ be the set of variables with a single letter} \\
+        \text{Let $Q$ be the set of variables with a single letter followed by a digit} \\
+        \#X = \#P + \#Q \quad -\text{Rule of Sum} \\
+        \#P = 26 \\
+        \#Q = 26 * 10 = 260 \quad -\text{Rule of Product} \\
+        \#X = 26 + 260 = 286
+    \end{gather*}
+
+    \vspace{10mm}
+    Q6
+    \begin{gather*}
+        \text{We use the Rule of Product to find the number of unique paths.} \\
+        \text{Starting at Podunk, there are 5 possible paths.} \\   
+        \text{Let $P$ be the set of paths from Podunk to Kalamazoo.} \\
+        \text{At Kalamzoo, there are 3 possible paths to take.} \\
+        \text{Let $K$ be the set of paths from Kalamazoo to Central City} \\
+        \text{Paths from Podunk to Central City} = \#P * \#K = 5*3 = 15
+    \end{gather*}
+
+\vspace{10mm}
+    Q7
+    \begin{gather*}
+        \text{20-permutation with repetition of set $\{true,false\}$} = 2^{20}
+    \end{gather*}
+
+    \vspace{10mm}
+    Q8
+    \begin{gather*}
+        \text{Permutation of bag } \{\!| R,R,R,R,R,R,U,U,U,U,U |\!\} \\
+        \frac{11!}{6!*5!} = \frac{11*10*9*8*7}{5*4*3*2*1} = 11*2*3*7 = 462
+    \end{gather*}
+
+    \newpage
+    Q9
+    \includegraphics[scale=0.4]{q9.jpeg}
+
+    \vspace{10mm}
+    Q10
+    \includegraphics[scale=0.4]{q10.jpeg}
+\end{document}
